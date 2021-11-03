@@ -1,0 +1,58 @@
+<h3>Наши арендаторы</h3>
+
+<!-- <div class="input-group mb-3">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Поиск по типу"
+      [(ngModel)]="tenant_type"
+    />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary"
+        type="button"
+        (click)="searchByType()"
+      >
+        Search
+      </button>
+    </div>
+  </div> -->
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Тип</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Email</th>
+        <th scope="col">Телефон</th>
+        
+        <th scope="col" class="text-right">
+            <button class="btn btn-primary"
+            (click)="onAddTenant()">              
+                Добавить арендатора
+            </button>
+        </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of tenants">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.tenant_type}}</td>
+        <td>{{item.tenant_name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.phone}}</td>
+
+        <td class="text-right">
+            <button class="btn btn-primary mr-3"
+            (click)="onEditTenant(item.id)">
+                Редактировать
+            </button>
+            <button class="btn btn-danger ml-3"
+            (click)="onTenantDelete(item.id)">
+                Удалить
+            </button>
+        </td> 
+        </tr>
+    </tbody>
+</table> 

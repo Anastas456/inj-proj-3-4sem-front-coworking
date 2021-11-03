@@ -7,17 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class SharedServiceService {
 
-  readonly baseUrl= 'http://127.0.0.1:8000/api';
+  baseUrl= 'http://127.0.0.1:8000/api';
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient, public path: string) { }
 
   getPremisesList():Observable<any>{
     return this.http.get<any>(this.baseUrl + '/premises/')
   }
 
-  // getCoworkingPremiseList():Observable<any>{
-  //   return this.http.get<any>(this.baseUrl + '/premises/1/')
-  // }
 
   getRateList():Observable<any>{
     return this.http.get<any>(this.baseUrl + '/rates/')

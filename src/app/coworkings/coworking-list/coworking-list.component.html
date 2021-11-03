@@ -7,7 +7,7 @@
             <ng-container *ngIf="item.premise_type==1">
                 <div class="card bg-light m-1"> 
                     <div class="card-body">
-                        <h5 class="card-title">Коворкинг № {{item.id}}</h5>
+                        <h5 class="card-title" #id>Коворкинг № {{item.id}}</h5>
                         <p class="card-text">Расположение: {{item.address}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
@@ -18,7 +18,8 @@
                     <div class="card-body">
                         <!-- <a href="#" class="card-link m-3">Тарифы</a> -->
                         <!-- <button href="#" class="btn btn-primary m-1">Подробнее</button> -->
-                        <button href="#" class="btn btn-primary">Арендовать</button>
+                        <button href="#" class="btn btn-primary" 
+                        [routerLink]="'/rent-form'">Арендовать</button>
                     </div>
                 </div>
             </ng-container>    

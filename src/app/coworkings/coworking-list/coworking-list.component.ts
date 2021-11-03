@@ -9,6 +9,7 @@ import { SharedServiceService } from 'src/app/shared/services/shared-service.ser
 })
 export class CoworkingListComponent implements OnInit {
 
+
   constructor(private service:SharedServiceService) { }
 
   premiseList: any=[];
@@ -34,6 +35,7 @@ export class CoworkingListComponent implements OnInit {
   //   return this.baseList.filter((premise) => premise.premise_type === type);
   // }
 
-  
+
+
 
 }
