@@ -11,7 +11,8 @@ import { TenantServiceService } from 'src/app/shared/services/tenant-service.ser
 export class TenantListComponent implements OnInit {
 
   tenants?:Tenant[];
-  tenant_type='';
+  tenant_name='';
+  searchType='';
 
   constructor(private tenantService:TenantServiceService,
     private router: Router) { }
@@ -53,19 +54,17 @@ export class TenantListComponent implements OnInit {
         });
   }
 
-  // searchByType(): void {
-  //   this.tenantService.findByType(this.tenant_type)
-  //     .subscribe(
-  //       data => {
-  //         this.tenants = data;
-  //         console.log(data);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  //   // console.log(this.tenant_type); 
-  // }
-  
-  
+  searchName(){
+    this.tenantService.findByName(this.tenant_name)
+      .subscribe(
+        data => {
+          this.tenants = data;
+          console.log(data);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
 
 }

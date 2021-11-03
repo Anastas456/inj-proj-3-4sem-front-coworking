@@ -104,11 +104,6 @@ onDelete(){
       error => {
         console.log(error);
       });
-}
-
-
-
- 
-
+  }
 
 }

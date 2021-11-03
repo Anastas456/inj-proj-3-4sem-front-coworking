@@ -35,9 +35,9 @@ export class TenantServiceService {
     return this.http.delete(`${baseTenantUrl}/${id}`);
   }
   
-  // findByType(tenant_type): Observable<any> {
-  //   return this.http.get(`${baseTenantUrl}?tenant_type=${tenant_type}`);
-  // }
+  findByName(tenant_name): Observable<any> {
+    return this.http.get(`${baseTenantUrl}?tenant_name=${tenant_name}`);
+  }
 
 
 }

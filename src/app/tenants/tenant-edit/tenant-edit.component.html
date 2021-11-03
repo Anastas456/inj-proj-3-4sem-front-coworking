@@ -36,8 +36,8 @@
             id="tenantphone"
             placeholder="Телефон"
             formControlName="phone"
-            
-          />    <!--[textMask]="{mask: mask}"-->
+            [textMask]="{mask: mask}"
+          /> 
           <div class="alert alert-danger" 
           *ngIf="tenantForm.controls['phone'].invalid && tenantForm.controls['phone'].touched">
               Не указан номер телефона

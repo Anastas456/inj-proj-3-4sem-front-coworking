@@ -6,11 +6,12 @@ import { TenantEditComponent } from './tenant-edit/tenant-edit.component';
 import { TenantsRoutingModule } from './tenants-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
+import { SearchByTenantTypePipe } from '../shared/pipes/search-by-tenant-type.pipe';
 
 
 
 @NgModule({
-  declarations: [TenantsComponent, TenantListComponent, TenantEditComponent],
+  declarations: [TenantsComponent, TenantListComponent, TenantEditComponent, SearchByTenantTypePipe],
   imports: [
     CommonModule,
     TenantsRoutingModule,
