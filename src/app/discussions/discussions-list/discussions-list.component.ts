@@ -8,9 +8,9 @@ import { SharedServiceService } from 'src/app/shared/services/shared-service.ser
 })
 export class DiscussionsListComponent implements OnInit {
 
-  constructor(private service:SharedServiceService) { }
+  constructor(private sharedService:SharedServiceService) { }
 
-  premiseList: any=[];
+  discussionList: any=[];
   rateList: any[];
 
   ngOnInit(): void {
@@ -18,12 +18,22 @@ export class DiscussionsListComponent implements OnInit {
   }
 
   refreshList(){
-    this.service.getPremisesList().subscribe(data => {
-      this.premiseList=data;
-    });
-    this.service.getRateList().subscribe(data => {
-      this.rateList=data;
-    });
+    this.sharedService.getDiscussionList().subscribe(
+      data => {
+        this.discussionList=data;
+      },
+      error => {
+        console.log(error)
+      });
+
+    this.sharedService.getRateList().subscribe(
+      data => {
+        this.rateList=data;
+      },
+      error => {
+        console.log(error)
+      }
+    );
 
   }
 

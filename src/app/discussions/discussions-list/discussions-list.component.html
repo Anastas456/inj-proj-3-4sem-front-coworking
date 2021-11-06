@@ -3,25 +3,24 @@
 </div>
 <div class="container ">
     <div class="row" > 
-        <div class=" col-lg-3 col-md-6 col-sm-12" *ngFor="let item of premiseList">
-            <ng-container *ngIf="item.premise_type==2">
-                <div class="card bg-light m-1"> 
-                    <div class="card-body">
-                        <h5 class="card-title">Переговорная № {{item.id}}</h5>
-                        <p class="card-text">Расположение: {{item.address}}</p>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Площадь: {{item.square}} м<sup>2</sup></li>
-                        <li class="list-group-item">Количество рабочих мест: {{item.number_of_workplaces}}</li>
-                        <li class="list-group-item">Тип помещения: {{item.premise_type}}</li>
-                    </ul>
-                    <div class="card-body">
-                        <!-- <a href="#" class="card-link m-3">Тарифы</a> -->
-                        <!-- <button href="#" class="btn btn-primary m-1">Подробнее</button> -->
-                        <button href="#" class="btn btn-primary">Арендовать</button>
-                    </div>
+        <div class=" col-lg-3 col-md-6 col-sm-12" *ngFor="let item of discussionList">
+            <div class="card bg-light m-1"> 
+                <div class="card-body">
+                    <h5 class="card-title">Переговорная № {{item.id}}</h5>
+                    <p class="card-text">Расположение: {{item.address}}</p>
                 </div>
-            </ng-container>    
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Площадь: {{item.square}} м<sup>2</sup></li>
+                    <li class="list-group-item">Количество рабочих мест: {{item.number_of_workplaces}}</li>
+                    <li class="list-group-item">Тип помещения: {{item.premise_type}}</li>
+                </ul>
+                <div class="card-body">
+                    <!-- <a href="#" class="card-link m-3">Тарифы</a> -->
+                    <!-- <button href="#" class="btn btn-primary m-1">Подробнее</button> -->
+                    <button href="#" class="btn btn-primary"
+                    [routerLink]="'/rent-form'">Арендовать</button>
+                </div>
+            </div>  
         </div>
     </div>
 </div>  
@@ -43,7 +42,7 @@
                 <ng-container *ngIf="item.premise_type==2">
                     <!-- <th scope="row">{{item.id}}</th> -->
                     <td>{{item.rental_time}}</td>
-                    <td>{{item.fixed_or_non_fixed}}</td>
+                    <td>{{item.fixed_or_non_fixed | trueFalsePipe}}</td>
                     <td>{{item.price}} руб</td>
                     <!-- <td>{{item.premise_type}}</td> -->
                 </ng-container>

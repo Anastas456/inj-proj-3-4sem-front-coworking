@@ -9,7 +9,7 @@ const baseTenantUrl ='http://127.0.0.1:8000/api/tenants';
 })
 export class TenantServiceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
   getAllTenants(): Observable<any> {
     return this.http.get(`${baseTenantUrl}/`);

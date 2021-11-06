@@ -1,0 +1,17 @@
+<div class="container">
+    <h3>Авторизация</h3>
+    <form>
+        <div class="form-group">
+            <label for="usernameInput">Логин</label>
+            <input type="text" class="form-control mb-2" id="usernameInput"  placeholder="Введите логин"
+            [(ngModel)]="auth.username" [ngModelOptions]="{ standalone: true }">
+        </div>
+        <div class="form-group">
+            <label for="passwordInput">Пароль</label>
+            <input type="password" class="form-control mb-2" id="passwordInput" placeholder="Введите пароль"
+            [(ngModel)]="auth.password" [ngModelOptions]="{ standalone: true }">
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3" (click)="authUser()">Зарегистрироваться</button>
+    </form>
+</div>

@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CoworkingListComponent } from './coworking-list/coworking-list.component';
 import { CoworkingsComponent } from './coworkings.component';
 
 const routes: Routes = [
   {
     path:'',
-    component:CoworkingsComponent
+    component:CoworkingsComponent,
+    children:[
+      {
+        path:'',
+        component: CoworkingListComponent
+      }
+    ]
   }
 ];
 

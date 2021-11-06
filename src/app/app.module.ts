@@ -8,8 +8,8 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { MainHeaderComponent } from './shared/components/main-header/main-header.component';
 import { SharedServiceService } from './shared/services/shared-service.service';
 import { RentFormComponent } from './rent-form/rent-form.component';
-import { RegisterPageComponent } from './register-page/register-page.component';
 import { FormsModule } from '@angular/forms';
+import { AuthFormComponent } from './auth-form/auth-form.component';
 
 
 @NgModule({
@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     MainPageComponent,
     MainHeaderComponent,
     RentFormComponent,
-    RegisterPageComponent,
+    AuthFormComponent
   ],
   imports: [
     BrowserModule,

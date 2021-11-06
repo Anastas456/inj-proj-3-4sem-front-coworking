@@ -5,6 +5,7 @@ import { CoworkingsRoutingModule } from './coworkings-routing.module';
 import { CoworkingsComponent } from './coworkings.component';
 import { CoworkingListComponent } from './coworking-list/coworking-list.component';
 import { CoworkingEditComponent } from './coworking-edit/coworking-edit.component';
+import { SharedModule } from '../shared/modules/shared-module';
 
 
 @NgModule({
@@ -12,7 +13,7 @@ import { CoworkingEditComponent } from './coworking-edit/coworking-edit.componen
   imports: [
     CommonModule,
     CoworkingsRoutingModule,
-    
+    SharedModule
   ]
 })
 export class CoworkingsModule { }

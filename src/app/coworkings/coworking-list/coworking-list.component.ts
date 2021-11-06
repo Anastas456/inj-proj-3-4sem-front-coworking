@@ -10,32 +10,34 @@ import { SharedServiceService } from 'src/app/shared/services/shared-service.ser
 export class CoworkingListComponent implements OnInit {
 
 
-  constructor(private service:SharedServiceService) { }
+  constructor(private sharedService:SharedServiceService) { }
 
-  premiseList: any=[];
-  rateList: any[];
+  coworkingList: any=[];
+  rateList:any=[]
 
   ngOnInit(): void {
     this.refreshList();
-    // console.log(this.baseList);
   }
 
   refreshList(){
-    this.service.getPremisesList().subscribe(data => {
-      this.premiseList=data;
-    });
-    // this.baseList.filter((premise) => premise.premise_type === 1);
-    // this.getByType(1);
-    this.service.getRateList().subscribe(data => {
-      this.rateList=data;
-    });
+    this.sharedService.getCoworkingList().subscribe(
+      data => {
+        this.coworkingList=data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      });
+    
+    this.sharedService.getRateList().subscribe(
+      data => {
+        this.rateList=data;
+      },
+      error => {
+        console.log(error)
+      }
+    );
   }
-
-  // getByType(type: number) {
-  //   return this.baseList.filter((premise) => premise.premise_type === type);
-  // }
-
-
 
 
 }
