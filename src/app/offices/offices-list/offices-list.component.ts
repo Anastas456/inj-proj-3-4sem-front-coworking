@@ -37,4 +37,8 @@ export class OfficesListComponent implements OnInit {
     );
   }
 
+  getCount(){
+    return this.officeList.length;
+  }
+
 }

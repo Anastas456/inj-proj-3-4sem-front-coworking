@@ -48,14 +48,34 @@
                 [routerLink]="'/tenants'" 
                 [routerLinkActive]="'active'"
                 [routerLinkActiveOptions]="{exact:true}"
+                *ngIf="userService.isLoggedIn()"
             >Арендаторы</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link"
+                *ngIf="!userService.isLoggedIn()"
+                  [routerLink]="'/registration-form'" 
+                  [routerLinkActive]="'active'"
+                  [routerLinkActiveOptions]="{exact:true}"
+              >Регистрация</a>
+            </li>
+
           <li class="nav-item">
             <a class="nav-link"
+              *ngIf="!userService.isLoggedIn()"
                 [routerLink]="'/auth-form'" 
                 [routerLinkActive]="'active'"
                 [routerLinkActiveOptions]="{exact:true}"
             >Авторизация</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link"
+                *ngIf="userService.isLoggedIn()"
+                [routerLink]="'/user-profile'" 
+                [routerLinkActive]="'active'"
+                [routerLinkActiveOptions]="{exact:true}"
+            >Кабинет пользователя</a>
           </li>
 
           

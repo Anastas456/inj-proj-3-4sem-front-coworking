@@ -37,4 +37,8 @@ export class DiscussionsListComponent implements OnInit {
 
   }
 
+  getCount(){
+    return this.discussionList.length;
+  }
+
 }

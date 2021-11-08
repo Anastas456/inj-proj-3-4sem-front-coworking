@@ -1,5 +1,5 @@
 <div class="container">
-    <p>Всего у нас доступно n залов коворкинга.</p>
+    <p>Всего у нас доступно {{getCount()}} помещения данного типа</p>
 </div>
 <div class="container ">
     <div class="row" > 
@@ -12,7 +12,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Площадь: {{item.square}} м<sup>2</sup></li>
                     <li class="list-group-item">Количество рабочих мест: {{item.number_of_workplaces}}</li>
-                    <li class="list-group-item">Тип помещения: {{item.premise_type}}</li>
+                    <!-- <li class="list-group-item">Тип помещения: {{item.premise_type}}</li> -->
                 </ul>
                 <div class="card-body">
                     <!-- <a href="#" class="card-link m-3">Тарифы</a> -->

@@ -39,5 +39,9 @@ export class CoworkingListComponent implements OnInit {
     );
   }
 
+  getCount(){
+    return this.coworkingList.length;
+  }
+
 
 }

@@ -10,6 +10,10 @@ import { SharedServiceService } from './shared/services/shared-service.service';
 import { RentFormComponent } from './rent-form/rent-form.component';
 import { FormsModule } from '@angular/forms';
 import { AuthFormComponent } from './auth-form/auth-form.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { isLoggedIn } from './isLogged.guard';
+import { RegistrationFormComponent } from './registration-form/registration-form.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 
 @NgModule({
@@ -18,15 +22,18 @@ import { AuthFormComponent } from './auth-form/auth-form.component';
     MainPageComponent,
     MainHeaderComponent,
     RentFormComponent,
-    AuthFormComponent
+    AuthFormComponent,
+    UserProfileComponent,
+    RegistrationFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    TextMaskModule
   ],
-  providers: [SharedServiceService],
+  providers: [SharedServiceService, isLoggedIn],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,2 +1,28 @@
-<p>rent-form works!</p>
-<p>P.S. Тут должна быть форма обратной связи для пользователя</p>
+<div class="container">
+    <h3>Форма обратной связи</h3>
+    <p>Заполните ее, и мы скоро с вами свяжемся.</p>
+    <form>
+        <div class="form-group">
+            <label for="clientNabeInput">Ваши фамилия и имя</label>
+            <input type="text" class="form-control mb-2" id="clientNabeInput"  placeholder="Введите фамилию и имя"
+            [(ngModel)]="rent.client_name" [ngModelOptions]="{ standalone: true }">
+        </div>
+        <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input type="email" class="form-control mb-2" id="emailInput"  placeholder="Введите email"
+            [(ngModel)]="rent.email" [ngModelOptions]="{ standalone: true }">
+        </div>
+        <div class="form-group">
+            <label for="phoneInput">Телефон</label>
+            <input type="phone" class="form-control mb-2" id="phoneInput"  placeholder="Введите номер телефона"
+            [(ngModel)]="rent.phone" [ngModelOptions]="{ standalone: true }" [textMask]="{mask: mask}">
+        </div>
+        <div class="form-group">
+            <label for="descriptionInput">Дополнительная информация</label>
+            <textarea class="form-control mb-2" id="descriptionInput" rows="3" placeholder="Напишите свои вопросы и пожелания"
+            [(ngModel)]="rent.description" [ngModelOptions]="{ standalone: true }"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-primary mt-3" (click)="sendRentForm()">Отправить</button>
+    </form>
+</div>
