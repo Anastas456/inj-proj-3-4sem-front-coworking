@@ -1,5 +1,15 @@
-<h3>Личный кабинет</h3>
-<p>user-profile works!</p>
-
-<button class="btn btn-warning" (click)="onLogoutUser()">Выйти</button>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="display-5">Личный кабинет</h1>
+        <p class="lead">Здесь вы можете посмотреть свои данные</p>
+        <ul class="list-group">
+            <li class="list-group-item">Логин: {{username}}</li>
+            <li class="list-group-item">Имя: {{first_name}}</li>
+            <li class="list-group-item">Фамилия: {{last_name}}</li>
+        </ul>
+        <button class="btn btn-warning mt-3" (click)="onLogoutUser()">Выйти</button>
+        </div>
+    </div>
+</div>
 

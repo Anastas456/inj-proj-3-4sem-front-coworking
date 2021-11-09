@@ -9,11 +9,17 @@ import { UserService } from '../shared/services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  
+  username:any;
+  first_name:any;
+  last_name:any;
+
   constructor(private userService:UserService,
       private router: Router) { }
 
   ngOnInit(): void {
+    this.username=localStorage.getItem('username');
+    this.first_name=localStorage.getItem('first_name');
+    this.last_name=localStorage.getItem('last_name');
   }
 
   onLogoutUser(){
