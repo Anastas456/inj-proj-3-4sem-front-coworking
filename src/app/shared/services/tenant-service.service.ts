@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -12,31 +12,44 @@ export class TenantServiceService {
   constructor(public http: HttpClient) { }
 
   getAllTenants(): Observable<any> {
-    return this.http.get(`${baseTenantUrl}/`);
+    return this.http.get(`${baseTenantUrl}/`, {headers: new HttpHeaders({
+      'Authorization': 'JWT '+ localStorage.getItem('token')
+    })});
   }
     
-  // getTenant(id): Observable<any> {
-  //   return this.http.get(`${baseTenantUrl}/${id}`);
-  // }
+  getTenantO(id): Observable<any> {
+    return this.http.get(`${baseTenantUrl}/${id}`, {headers: new HttpHeaders({
+      'Authorization': 'JWT '+ localStorage.getItem('token')
+    })});
+  }
 
   getTenant(id:number): Promise<any>{
-    return this.http.get(`${baseTenantUrl}/${id}`).toPromise();
+    return this.getTenantO(id).toPromise();
   }
   
   createTenant(data: any): Observable<any> {
-    return this.http.post(baseTenantUrl, data);
+    return this.http.post(baseTenantUrl, data, {headers: new HttpHeaders({
+      'Authorization': 'JWT '+ localStorage.getItem('token')
+    })});
   }
 
   updateTenant(id: any, data: any): Observable<any> {
-    return this.http.put(`${baseTenantUrl}/${id}`, data);
+    return this.http.put(`${baseTenantUrl}/${id}`, data, {headers: new HttpHeaders({
+      'Authorization': 'JWT '+ localStorage.getItem('token')
+    })}
+    );
   }
 
   deleteTenant(id: any): Observable<any> {
-    return this.http.delete(`${baseTenantUrl}/${id}`);
+    return this.http.delete(`${baseTenantUrl}/${id}`, {headers: new HttpHeaders({
+      'Authorization': 'JWT '+ localStorage.getItem('token')
+    })});
   }
   
   findByName(tenant_name): Observable<any> {
-    return this.http.get(`${baseTenantUrl}?tenant_name=${tenant_name}`);
+    return this.http.get(`${baseTenantUrl}?tenant_name=${tenant_name}`, {headers: new HttpHeaders({
+      'Authorization': 'JWT '+ localStorage.getItem('token')
+    })});
   }
 
 
