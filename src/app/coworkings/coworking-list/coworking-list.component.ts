@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedServiceService } from 'src/app/shared/services/shared-service.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 
 @Component({
@@ -10,7 +12,9 @@ import { SharedServiceService } from 'src/app/shared/services/shared-service.ser
 export class CoworkingListComponent implements OnInit {
 
 
-  constructor(private sharedService:SharedServiceService) { }
+  constructor(private sharedService:SharedServiceService,
+    public userService: UserService,
+    private router: Router) { }
 
   coworkingList: any=[];
   rateList:any=[]
@@ -41,6 +45,14 @@ export class CoworkingListComponent implements OnInit {
 
   getCount(){
     return this.coworkingList.length;
+  }
+
+  onEditPremise(id:number){
+    this.router.navigate([this.router.url, 'coworking-edit', id]);
+  }
+
+  onAddPremise(){
+    this.router.navigate([this.router.url, 'coworking-edit']);
   }
 
 

@@ -27,7 +27,7 @@ export class AuthFormComponent implements OnInit {
         console.log(response);
         // alert('Пользователь '+ this.auth.username + ' залогинился');
         this.router.navigate(['/user-profile']);
-        this.userService.storeUser(response.token, response.username, response.first_name, response.last_name)
+        this.userService.storeUser(response.token, response.username, response.first_name, response.last_name, response.role)
 
       },
       error =>{

@@ -7,6 +7,7 @@
             <li class="list-group-item">Логин: {{username}}</li>
             <li class="list-group-item">Имя: {{first_name}}</li>
             <li class="list-group-item">Фамилия: {{last_name}}</li>
+            <li class="list-group-item">Тип пользователя: {{role | rolePipe}}</li>
         </ul>
         <button class="btn btn-warning mt-3" (click)="onLogoutUser()">Выйти</button>
         </div>

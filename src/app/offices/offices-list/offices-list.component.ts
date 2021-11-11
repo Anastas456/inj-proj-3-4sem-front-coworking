@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedServiceService } from 'src/app/shared/services/shared-service.service';
+import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
   selector: 'app-offices-list',
@@ -8,7 +10,9 @@ import { SharedServiceService } from 'src/app/shared/services/shared-service.ser
 })
 export class OfficesListComponent implements OnInit {
 
-  constructor(private sharedService:SharedServiceService) { }
+  constructor(private sharedService:SharedServiceService,
+    public userService: UserService,
+    private router: Router) { }
 
   officeList: any=[];
   rateList: any[];
@@ -39,6 +43,14 @@ export class OfficesListComponent implements OnInit {
 
   getCount(){
     return this.officeList.length;
+  }
+
+  onEditPremise(id:number){
+    this.router.navigate([this.router.url, 'office-edit', id]);
+  }
+
+  onAddPremise(){
+    this.router.navigate([this.router.url, 'office-edit']);
   }
 
 }

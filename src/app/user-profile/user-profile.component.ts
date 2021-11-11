@@ -12,6 +12,7 @@ export class UserProfileComponent implements OnInit {
   username:any;
   first_name:any;
   last_name:any;
+  role:any;
 
   constructor(private userService:UserService,
       private router: Router) { }
@@ -20,6 +21,7 @@ export class UserProfileComponent implements OnInit {
     this.username=localStorage.getItem('username');
     this.first_name=localStorage.getItem('first_name');
     this.last_name=localStorage.getItem('last_name');
+    this.role=localStorage.getItem('role');
   }
 
   onLogoutUser(){

@@ -14,6 +14,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { isLoggedIn } from './isLogged.guard';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { HasRoleGuard } from './has-role.guard';
+import { RolePipePipe } from './shared/pipes/role-pipe.pipe';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     RentFormComponent,
     AuthFormComponent,
     UserProfileComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    RolePipePipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     FormsModule,
     TextMaskModule
   ],
-  providers: [SharedServiceService, isLoggedIn],
+  providers: [SharedServiceService, isLoggedIn, HasRoleGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

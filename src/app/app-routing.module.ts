@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthFormComponent } from './auth-form/auth-form.component';
+import { HasRoleGuard } from './has-role.guard';
 import { isLoggedIn } from './isLogged.guard';
 import { MainPageComponent } from './main-page/main-page.component';
 import { RegistrationFormComponent } from './registration-form/registration-form.component';
@@ -35,7 +36,10 @@ const routes: Routes = [
     path:'tenants',
     loadChildren: ()=>
       import('./tenants/tenants.module').then((m) => m.TenantsModule),
-    canActivate: [isLoggedIn]
+    canActivate: [isLoggedIn, HasRoleGuard],
+    data: {
+      expectedRole: ['admin']
+    }
   },
   {
     path:'registration-form',

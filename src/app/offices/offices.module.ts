@@ -6,6 +6,7 @@ import { OfficesComponent } from './offices.component';
 import { OfficesListComponent } from './offices-list/offices-list.component';
 import { OfficesEditComponent } from './offices-edit/offices-edit.component';
 import { SharedModule } from '../shared/modules/shared-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { SharedModule } from '../shared/modules/shared-module';
   imports: [
     CommonModule,
     OfficesRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class OfficesModule { }

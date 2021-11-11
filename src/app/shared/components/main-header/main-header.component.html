@@ -48,7 +48,7 @@
                 [routerLink]="'/tenants'" 
                 [routerLinkActive]="'active'"
                 [routerLinkActiveOptions]="{exact:true}"
-                *ngIf="userService.isLoggedIn()"
+                *ngIf="userService.isLoggedIn() && userService.returnRole()=='admin'"
             >Арендаторы</a>
             </li>
             

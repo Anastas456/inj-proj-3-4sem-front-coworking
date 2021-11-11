@@ -6,6 +6,7 @@ import { DiscussionsComponent } from './discussions.component';
 import { DiscussionsListComponent } from './discussions-list/discussions-list.component';
 import { DiscussionsEditComponent } from './discussions-edit/discussions-edit.component';
 import { SharedModule } from '../shared/modules/shared-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { SharedModule } from '../shared/modules/shared-module';
   imports: [
     CommonModule,
     DiscussionsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class DiscussionsModule { }

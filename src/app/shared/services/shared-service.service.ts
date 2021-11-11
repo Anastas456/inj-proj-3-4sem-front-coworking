@@ -27,10 +27,11 @@ export class SharedServiceService extends TenantServiceService {
   }
 
   getRateList():Observable<any>{
-    return this.http.get<any>(`${baseUrl}/rates/`)
+    return this.http.get<any>(`${baseUrl}/rates`)
   }
 
   postRentForm(userData):Observable<any>{
     return this.http.post(`${baseUrl}/rent-form`, userData);
   }
+
 }

@@ -1,6 +1,13 @@
 <div class="container">
     <p>Всего у нас доступно {{getCount()}} помещения данного типа.</p>
 </div>
+<div class="container">
+    <button class="btn btn-primary mb-3"
+    *ngIf="userService.isLoggedIn() && userService.returnRole()=='worker'"
+        (click)="onAddPremise()">              
+        Добавить помещение
+    </button>
+</div>
 <div class="container ">
     <div class="row" > 
         <div class=" col-lg-3 col-md-6 col-sm-12" *ngFor="let item of officeList">
@@ -19,6 +26,11 @@
                     <!-- <button href="#" class="btn btn-primary m-1">Подробнее</button> -->
                     <button href="#" class="btn btn-primary"
                     [routerLink]="'/rent-form'">Арендовать</button>
+                    <button class="btn btn-primary" 
+                    *ngIf="userService.isLoggedIn() && (userService.returnRole()=='admin' || userService.returnRole()=='worker')"
+                    (click)="onEditPremise(item.id)"
+                    >Редактировать
+                    </button>
                 </div>
             </div>   
         </div>

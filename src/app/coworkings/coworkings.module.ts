@@ -6,6 +6,7 @@ import { CoworkingsComponent } from './coworkings.component';
 import { CoworkingListComponent } from './coworking-list/coworking-list.component';
 import { CoworkingEditComponent } from './coworking-edit/coworking-edit.component';
 import { SharedModule } from '../shared/modules/shared-module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,9 @@ import { SharedModule } from '../shared/modules/shared-module';
   imports: [
     CommonModule,
     CoworkingsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class CoworkingsModule { }

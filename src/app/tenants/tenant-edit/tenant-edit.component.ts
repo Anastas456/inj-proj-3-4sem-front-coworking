@@ -12,14 +12,6 @@ import { TenantServiceService } from 'src/app/shared/services/tenant-service.ser
 })
 export class TenantEditComponent implements OnInit {
   tenant:Tenant
-  // ={
-  //   tenant_type: 'физическое лицо',
-  //   phone: '',
-  //   email:'',
-  //   tenant_name:''
-  // };
-  // submitted = false;
-
   id:number;
   tenantForm:FormGroup;
   
