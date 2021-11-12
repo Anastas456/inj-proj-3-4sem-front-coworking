@@ -1,65 +1,68 @@
-<h3>Наши арендаторы</h3>
+ <div class="container mt-2">
+  <h3>Наши арендаторы</h3>
 
-<div class="container mb-3">
-    <div class="row">
-      <div class="col-12">
-        <h5>Поиск по имени</h5>
-        <input type="text" 
-        class="form-control" 
-        placeholder="Введите имя"
-        [(ngModel)]="tenant_name">
-        <button class="btn btn-primary" (click)="searchName()">Поиск</button>
+  <div class="container mb-3">
+      <div class="row">
+        <div class="col-12">
+          <h5>Поиск по имени</h5>
+          <input type="text" 
+          class="form-control" 
+          placeholder="Введите имя"
+          [(ngModel)]="tenant_name">
+          <button class="btn btn-primary mt-2" (click)="searchName()">Поиск</button>
+        </div>
       </div>
     </div>
-  </div>
 
-<div class="container mb-3">
-    <div class="row">
-      <div class="col-12">
-        <h5>Фильтрация по типу</h5>
-        <input type="text" 
-        class="form-control" 
-        placeholder="Введите тип"
-        [(ngModel)]="searchType">
+  <div class="container mb-3">
+      <div class="row">
+        <div class="col-12">
+          <h5>Фильтрация по типу</h5>
+          <input type="text" 
+          class="form-control" 
+          placeholder="Введите тип"
+          [(ngModel)]="searchType">
+        </div>
       </div>
     </div>
+  <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Тип</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Email</th>
+            <th scope="col">Телефон</th>
+            
+            <th scope="col" class="text-right">
+                <button class="btn btn-primary"
+                (click)="onAddTenant()">              
+                    Добавить арендатора
+                </button>
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tenants | searchByTenantType: searchType">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.tenant_type}}</td>
+            <td>{{item.tenant_name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone}}</td>
+
+            <td class="text-right">
+                <button class="btn btn-primary mr-3"
+                (click)="onEditTenant(item.id)">
+                    Редактировать
+                </button>
+                <button class="btn btn-danger"
+                (click)="onTenantDelete(item.id)">
+                    Удалить
+                </button>
+            </td> 
+            </tr>
+        </tbody>
+    </table> 
   </div>
-
-<table class="table">
-    <thead>
-        <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Тип</th>
-        <th scope="col">Имя</th>
-        <th scope="col">Email</th>
-        <th scope="col">Телефон</th>
-        
-        <th scope="col" class="text-right">
-            <button class="btn btn-primary"
-            (click)="onAddTenant()">              
-                Добавить арендатора
-            </button>
-        </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let item of tenants | searchByTenantType: searchType">
-        <th scope="row">{{item.id}}</th>
-        <td>{{item.tenant_type}}</td>
-        <td>{{item.tenant_name}}</td>
-        <td>{{item.email}}</td>
-        <td>{{item.phone}}</td>
-
-        <td class="text-right">
-            <button class="btn btn-primary mr-3"
-            (click)="onEditTenant(item.id)">
-                Редактировать
-            </button>
-            <button class="btn btn-danger"
-            (click)="onTenantDelete(item.id)">
-                Удалить
-            </button>
-        </td> 
-        </tr>
-    </tbody>
-</table> 
+</div> 

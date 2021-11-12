@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-2">
     <p>Всего у нас доступно {{getCount()}} помещения данного типа</p>
 </div>
 <div class="container">
@@ -22,16 +22,13 @@
                     <!-- <li class="list-group-item">Тип помещения: {{item.premise_type}}</li> -->
                 </ul>
                 <div class="card-body">
-                    <!-- <a href="#" class="card-link m-3">Тарифы</a> -->
-                    <!-- <button href="#" class="btn btn-primary m-1">Подробнее</button> -->
                     <button class="btn btn-primary" 
-                    [routerLink]="'/rent-form'">Арендовать</button>
-                    <button class="btn btn-primary" 
-                    *ngIf="userService.isLoggedIn() && (userService.returnRole()=='admin' || userService.returnRole()=='worker')"
-                    (click)="onEditPremise(item.id)"
+                        [routerLink]="'/rent-form'">Арендовать</button>
+                    <button class="btn btn-outline-primary" 
+                        *ngIf="userService.isLoggedIn() && userService.returnRole()=='worker'"
+                        (click)="onEditPremise(item.id)"
                     >Редактировать
                     </button>
-
                 </div>
             </div>    
         </div>
@@ -40,27 +37,29 @@
 
 <div class="container mt-3 mb-3">
     <h3>Тарифы</h3>
-    <table class="table table-sm">
-        <thead class="thead-dark">
-            <tr>
-                <!-- <th scope="col">Id</th> -->
-                <th scope="col">Время аренды</th>
-                <th scope="col">Фиксированное или не фиксированное место</th>
-                <th scope="col">Цена</th>
-                <!-- <th scope="col">Тип помещения</th> -->
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of rateList">
-                <ng-container *ngIf="item.premise_type==1">
-                    <!-- <th scope="row">{{item.id}}</th> -->
-                    <td>{{item.rental_time}}</td>
-                    <td>{{item.fixed_or_non_fixed | trueFalsePipe}}</td>
-                    <td>{{item.price}} руб</td>
-                    <!-- <td>{{item.premise_type}}</td> -->
-                </ng-container>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <!-- <th scope="col">Id</th> -->
+                    <th scope="col">Время аренды</th>
+                    <th scope="col">Фиксированное или не фиксированное место</th>
+                    <th scope="col">Цена</th>
+                    <!-- <th scope="col">Тип помещения</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of rateList">
+                    <ng-container *ngIf="item.premise_type==1">
+                        <!-- <th scope="row">{{item.id}}</th> -->
+                        <td>{{item.rental_time}}</td>
+                        <td>{{item.fixed_or_non_fixed | trueFalsePipe}}</td>
+                        <td>{{item.price}} руб</td>
+                        <!-- <td>{{item.premise_type}}</td> -->
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 

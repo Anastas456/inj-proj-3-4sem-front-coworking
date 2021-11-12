@@ -1,0 +1,9 @@
+@media print {
+	html, body{
+		height: 297mm;
+		width: 210mm;
+	}
+    button, #navbarNav{
+        display: none;
+    }
+}
